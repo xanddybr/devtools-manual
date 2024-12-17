@@ -10,7 +10,8 @@ import { Component } from '@angular/core';
 export class Lesson06Component {
 
   addmessage() {
-    document.getElementById('message').append("Add message in body div")
+    const txtbox = document.getElementById('message')
+    txtbox.textContent == "" ? txtbox.textContent = "Bem vindo" : txtbox.textContent = ""
   }
 
 }

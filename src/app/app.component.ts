@@ -16,7 +16,8 @@ export class AppComponent {
   constructor(){
     
   }
-
+  
+  angularImg:string = 'assets/angular.png'
   title:string = 'course_angular';
  
 

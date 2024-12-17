@@ -1,0 +1,20 @@
+<p></p>
+
+<ul>
+    <li *ngFor="let course of courses; index as idx">{{ idx }} - {{ course }}</li>
+   </ul>
+
+<textarea style="width: 700px; height: 200px;" disabled>
+    
+    For create directive *ngFor make a array of type string with 3 values, as example bellow
+
+Exemple:
+
+    courses:string[ ]=['html','css','javascript']
+
+   <ul>
+    <li *ngFor="let course of courses; index as idx">{ { idx } } - { { course } }</li>
+   </ul>
+    
+</textarea>
+

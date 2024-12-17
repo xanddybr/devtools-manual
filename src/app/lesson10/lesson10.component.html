@@ -1,0 +1,31 @@
+
+<p></p>
+
+<div [ngSwitch]="course">
+    <p *ngSwitchCase="'html'">Markup language</p>
+    <p *ngSwitchCase="'Css'">Style language</p>
+    <p *ngSwitchCase="'Js'">Logical language</p>
+    <p *ngSwitchDefault>no value selected</p>
+</div>
+
+<select [(ngModel)]="selectedValue" (change)="selected()" style="width: 300px;">
+    <option value="" selected>Selecione algum valor</option>
+    <option value="{{ opc }}" *ngFor ="let opc of optionsCourse; index as idx">{{ opc }}</option>
+</select>
+<br><br>
+
+<textarea style="width: 700px; height: 300px;" disabled>
+
+    Need import FormsModule for can use ngModel and store the value bring of element select
+    
+Exemple:
+
+    <div [ngSwitch]="linguagem" #valueSelected>
+        <p *ngSwitchCase="'html'">Markup language</p>
+        <p *ngSwitchCase="'Css'">Style language</p>
+        <p *ngSwitchCase="'Js'">Logical language</p>
+        <p *ngSwitchDefault>no value selected</p>
+    </div>
+
+    
+</textarea>

@@ -9,6 +9,6 @@ import { Component } from '@angular/core';
 })
 export class Lesson07Component {
 
-  imagePath:string = 'assets/angular.jpg'
+  imagePath:string = 'assets/angular.png'
 
 }
