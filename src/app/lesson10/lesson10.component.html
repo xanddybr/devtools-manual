@@ -2,14 +2,14 @@
 <p></p>
 
 <div [ngSwitch]="course">
-    <p *ngSwitchCase="'html'">Markup language</p>
-    <p *ngSwitchCase="'Css'">Style language</p>
-    <p *ngSwitchCase="'Js'">Logical language</p>
+    <p *ngSwitchCase="'html'">Hyper Text Markup Language</p>
+    <p *ngSwitchCase="'Css'">Cascading Style Sheets</p>
+    <p *ngSwitchCase="'Js'">Java Script</p>
     <p *ngSwitchDefault>no value selected</p>
 </div>
 
-<select [(ngModel)]="selectedValue" (change)="selected()" style="width: 300px;">
-    <option value="" selected>Selecione algum valor</option>
+<select [(ngModel)]="selectedValue" (change)="selected()" style="width: 300px;" class="form-select">
+    <option value="" selected>Select Value</option>
     <option value="{{ opc }}" *ngFor ="let opc of optionsCourse; index as idx">{{ opc }}</option>
 </select>
 <br><br>
@@ -20,10 +20,10 @@
     
 Exemple:
 
-    <div [ngSwitch]="linguagem" #valueSelected>
-        <p *ngSwitchCase="'html'">Markup language</p>
-        <p *ngSwitchCase="'Css'">Style language</p>
-        <p *ngSwitchCase="'Js'">Logical language</p>
+    <div [ngSwitch]="course">
+        <p *ngSwitchCase="'html'">Hyper Text Markup Language</p>
+        <p *ngSwitchCase="'Css'">Cascading Style Sheets</p>
+        <p *ngSwitchCase="'Js'">Java Script</p>
         <p *ngSwitchDefault>no value selected</p>
     </div>
 
