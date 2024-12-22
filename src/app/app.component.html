@@ -4,7 +4,7 @@
   <tr>
     <td style="vertical-align: top;">         
       <div class="pill-group col" style="width: 350px; padding: 0.3rem;" *ngFor="let item of myitem">
-           <a class="pill" target="_self" href="{{item.link}}" ><div style="width: 270px; text-align: left;">{{ item.title }} {{ item.subtitle }}</div></a>
+           <a class="pill" target="_self" routerLink="{{item.link}}"><div style="width: 270px; text-align: left;">{{ item.title }} {{ item.subtitle }}</div></a>
       </div>
   </td>
   <td style="vertical-align: text-top;">

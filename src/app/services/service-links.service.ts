@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Cep } from '../models/Cep';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceLinksService {
+
+  url = "https://brasilapi.com.br/api/cep/v1/21730000"
 
   fillItensLink() {
     return [
@@ -16,6 +22,7 @@ export class ServiceLinksService {
       {title:"Lesson 10",subtitle:"NgSwitch Directive",link:"/lesson10"},
       {title:"Lesson 11",subtitle:"NgStyle Directive",link:"/lesson11"},
       {title:"Lesson 12",subtitle:"NgClass Directive",link:"/lesson12"},
+      {title:"Lesson 13",subtitle:"Router Link",link:"/lesson13"},
       {title:"Lesson 14",subtitle:"Condictional control flow",link:"/lesson14"},
       {title:"Lesson 15",subtitle:"Repeat Loop control flow",link:"/lesson15"},
       {title:"Lesson 16",subtitle:"Choise structure control flow",link:"/lesson16"},
@@ -41,6 +48,14 @@ export class ServiceLinksService {
     ]
   }
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+
+  getCep(): Observable<Cep[]> {
+    return this.http.get<Cep[]>(this.url)
+  }
+
+ 
+  
 
 }

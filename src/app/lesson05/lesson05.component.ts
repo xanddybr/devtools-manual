@@ -9,6 +9,6 @@ import { Component } from '@angular/core';
 })
 export class Lesson05Component {
 
-  nome:string = ''
+  name:string = 'Develope'
 
 }
