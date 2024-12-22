@@ -1,1 +1,18 @@
-<p>lesson15 works!</p>
+
+    @for (item of nomes; track $index) {
+        <p>{{ $index }} - {{ item }} </p>
+    }
+
+<textarea style="width: 700px; height: 300px;" disabled>
+
+    This is a example of control flow loop For, that you can typed in your own html file
+    
+Exemple:
+
+    nomes:string[] = ['Alexandre', 'Ana', 'Danilo', 'Camila'];
+
+    @for (item of nomes; track $index) {
+        <p>{ { $index } } - { { item } } </p>
+    }
+
+</textarea>

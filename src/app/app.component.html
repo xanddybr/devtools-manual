@@ -1,27 +1,20 @@
-   
+
+<a href="/"><img [src]="angularImg" style="width: 100px;"></a><br><br>
    <table>
-    <tr>
-      <td>
-        <div class="pill-group col" style="width: 250px;">
-          <a href="/"><img [src]="angularImg" style="width: 100px;"></a><br>
-            <a class="pill" target="_self" href="/lesson04">Lesson 04 Create component</a>
-            <a class="pill" target="_self" href="/lesson05">Lesson 05 Text interpolation</a>
-            <a class="pill" target="_self" href="/lesson06">Lesson 06 Event binding</a>
-            <a class="pill" target="_self" href="/lesson07">Lesson 07 Property binding</a>
-            <a class="pill" target="_self" href="/lesson08">Lesson 08 Directive NgIf</a>
-            <a class="pill" target="_self" href="/lesson09">Lesson 09 Directive NgFor</a>
-            <a class="pill" target="_self" href="/lesson10">Lesson 10 NgSwitch</a>
-            <a class="pill" target="_self" href="/lesson11">Lesson 11 NgStyle</a>
-        </div>
-
-    </td>
-    <td>
-      <router-outlet courses=""></router-outlet>
-    </td>
-  </tr>
-   </table>
-
-   
+  <tr>
+    <td style="vertical-align: top;">         
+      <div class="pill-group col" style="width: 350px; padding: 0.3rem;" *ngFor="let item of myitem">
+           <a class="pill" target="_self" href="{{item.link}}" ><div style="width: 270px; text-align: left;">{{ item.title }} {{ item.subtitle }}</div></a>
+      </div>
+  </td>
+  <td style="vertical-align: text-top;">
+    <div>
+       <router-outlet></router-outlet>
+    </div>
+  </td>
+</tr>
+ </table>
+ <br>
   
    
 

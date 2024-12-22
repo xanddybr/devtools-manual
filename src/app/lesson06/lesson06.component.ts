@@ -11,7 +11,7 @@ export class Lesson06Component {
 
   addmessage() {
     const txtbox = document.getElementById('message')
-    txtbox.textContent == "" ? txtbox.textContent = "Bem vindo" : txtbox.textContent = ""
+    txtbox.textContent == "" ? txtbox.textContent = "Well Come" : txtbox.textContent = ""
   }
 
 }

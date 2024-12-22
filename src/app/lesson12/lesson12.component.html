@@ -1,1 +1,26 @@
-<p>lesson12 works!</p>
+
+<div *ngFor="let options of textOption" [ngClass]="options == 'Text black, small size and Arial font' ? 'classSimple':'classPerfomatic'">{{ options }}</div><br>
+
+<textarea style="width: 700px; height: 300px;" disabled>
+
+Follow a example of directive ngClass
+
+Exemple:
+
+.classSimple {
+    font-size: small;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.classPerfomatic {
+    font-size: large;
+    color:red;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+textOption:string[]=['Text black, small size and Arial font','Text red, large size and Courier font']
+
+<div *ngFor="let options of textOption" [ngClass]="options == 'Text black, small size and Arial font' ? 'classSimple':'classPerfomatic'">{ { options } }</div><br>
+
+</textarea>

@@ -1,6 +1,6 @@
 
-    <h4 [ngStyle]="{'color': optionColor }">This text is blue because it is visible</h4><br>
-    <h4 *ngFor="let c of optionText" [ngStyle]="{'color': c == 'very' ? 'green':'blue'}">{{c}}</h4>
+    <h4 [ngStyle]="{'color': optionColor }">Using Property Binding with value of style</h4><br>
+    <h4 *ngFor="let c of optionText" [ngStyle]="{'color': c == 'If aproved BLUE' ? 'blue':'red'}">{{c}}</h4>
 
 <textarea style="width: 700px; height: 300px;" disabled>
 
@@ -8,15 +8,12 @@
     
 Exemple 01:
 
-    optionColor:string = 'blue'
-    <h4 [ngStyle]="{'color': optionColor }">This text is blue because it is visible</h4><br>
+    optionColor:string = 'green'
+    <h4 [ngStyle]="{'color': optionColor }">Using Property Binding with value of style</h4><br>
 
 Exemple 02:
 
-    optionText:string[] = ['very','very','good']
-    <h4 *ngFor="let c of optionText" [ngStyle]="{'color': c == 'very' ? 'green':'blue'}">{ {c} }</h4>
-
-  
-
+optionText:string[] = ['If aproved BLUE','If aproved RED']
+    <h4 *ngFor="let c of optionText" [ngStyle]="{'color': c == 'If aproved BLUE' ? 'blue':'red'}">{ {c} }</h4>
     
 </textarea>

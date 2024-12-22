@@ -9,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class Lesson14Component {
 
+  avarege:number = 8
+  
 }

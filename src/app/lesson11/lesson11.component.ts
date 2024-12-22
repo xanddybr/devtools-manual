@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class Lesson11Component {
 
-  optionColor:string = 'blue'
-  optionText:string[] = ['very','very','good']
+  optionColor:string = 'green'
+  optionText:string[] = ['If aproved BLUE','If reproved RED']
 
 }

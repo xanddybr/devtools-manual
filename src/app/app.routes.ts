@@ -16,6 +16,23 @@ import { Lesson17Component } from './lesson17/lesson17.component';
 import { Lesson18Component } from './lesson18/lesson18.component';
 import { Lesson19Component } from './lesson19/lesson19.component';
 import { Lesson20Component } from './lesson20/lesson20.component';
+import { Lesson21Component } from './lesson21/lesson21.component';
+import { Lesson22Component } from './lesson22/lesson22.component';
+import { Lesson23Component } from './lesson23/lesson23.component';
+import { Lesson24Component } from './lesson24/lesson24.component';
+import { Lesson25Component } from './lesson25/lesson25.component';
+import { Lesson26Component } from './lesson26/lesson26.component';
+import { Lesson27Component } from './lesson27/lesson27.component';
+import { Lesson28Component } from './lesson28/lesson28.component';
+import { Lesson29Component } from './lesson29/lesson29.component';
+import { Lesson30Component } from './lesson30/lesson30.component';
+import { Lesson31Component } from './lesson31/lesson31.component';
+import { Lesson32Component } from './lesson32/lesson32.component';
+import { Lesson33Component } from './lesson33/lesson33.component';
+import { Lesson34Component } from './lesson34/lesson34.component';
+import { Lesson35Component } from './lesson35/lesson35.component';
+import { Lesson36Component } from './lesson36/lesson36.component';
+import { Lesson37Component } from './lesson37/lesson37.component';
 
 
 export const routes: Routes = [ 
@@ -36,6 +53,24 @@ export const routes: Routes = [
     {path:'lesson18', component:Lesson18Component},
     {path:'lesson19', component:Lesson19Component},
     {path:'lesson20', component:Lesson20Component},
+    {path:'lesson21', component:Lesson21Component},
+    {path:'lesson22', component:Lesson22Component},
+    {path:'lesson23', component:Lesson23Component},
+    {path:'lesson24', component:Lesson24Component},
+    {path:'lesson25', component:Lesson25Component},
+    {path:'lesson26', component:Lesson26Component},
+    {path:'lesson27', component:Lesson27Component},
+    {path:'lesson28', component:Lesson28Component},
+    {path:'lesson29', component:Lesson29Component},
+    {path:'lesson30', component:Lesson30Component},
+    {path:'lesson31', component:Lesson31Component},
+    {path:'lesson32', component:Lesson32Component},
+    {path:'lesson33', component:Lesson33Component},
+    {path:'lesson34', component:Lesson34Component},
+    {path:'lesson35', component:Lesson35Component},
+    {path:'lesson36', component:Lesson36Component},
+    {path:'lesson37', component:Lesson37Component},
+
     {path:'', redirectTo:'',pathMatch:'full'}
 
 ];
