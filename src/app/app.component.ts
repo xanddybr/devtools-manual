@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
 
   ceps:Cep[];
   myitem:any;
+  frutas:string[]=['mamão','pera','uva','maçã']
   angularImg:string = 'assets/angular.png';
   title:string = 'course_angular';
   
