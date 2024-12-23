@@ -63,10 +63,10 @@
   }
 
   .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
+    background: color-mix(in srgb, var(--pill-accent) 17%, transparent);
   }
 
   .active {
-    background: color-mix(in srgb, var(--pill-accent) 60%, transparent);
+    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
   }
 
