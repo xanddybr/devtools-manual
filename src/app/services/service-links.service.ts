@@ -52,10 +52,8 @@ export class ServiceLinksService {
 
 
   getCep(): Observable<Cep[]> {
-    return this.http.get<Cep[]>(this.url)
+    return this.http.get<Cep[]>(this.url);
   }
-
- 
   
 
 }

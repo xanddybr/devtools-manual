@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { Cep } from './models/Cep';
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,34 +13,31 @@ import { Cep } from './models/Cep';
 })
 
 export class AppComponent implements OnInit {
-
-
-
-  constructor(private servLinks:ServiceLinksService){
-    
-  }
   
-  cep:any
-  myitem:any
-  angularImg:string = 'assets/angular.png'
-  title:string = 'course_angular';
+  constructor(private servLinks:ServiceLinksService){ }
 
+  ceps:Cep[];
+  myitem:any;
+  angularImg:string = 'assets/angular.png';
+  title:string = 'course_angular';
+  
 
   filllinks() {
     this.myitem = this.servLinks.fillItensLink() 
   }
+   
 
   getCep() {
     this.servLinks.getCep().subscribe({
-      next:(v) => this.cep = v,
-      error:(e) => console.log(e,"erro ao efetuar a requisição na API"),
-      complete:()=> console.log("Dados carregados com sucesso!")
-    })
-  }
+      next:(v)=> this.ceps = v, 
+      error:(e)=> console.log("Error try it ", e), 
+      complete:()=> console.log("complete load data!")})
+  } 
    
   ngOnInit() {
-    this.filllinks()
     this.getCep()
+    this.filllinks()
+    
   }
 
 

@@ -1,1 +1,26 @@
-<p>lesson16 works!</p>
+
+@switch (language) {
+    @case ('html') {<p><b>Hyper text markup language</b></p>}
+    @case ('css') {<p>Cascadin style sheets</p>}
+    @case ('js') {<p>Java script</p>}
+    @default {<p>Linguagem não encontrada</p>}
+}
+
+<textarea style="width: 700px; height: 400px;" disabled>
+
+    This is a example of Switch case control flow, that you can typed in your own html file
+    
+Exemple:
+
+    language:string = 'html'
+
+this code in html:
+
+    @switch (language) {
+        @case ('html') {<p><b>Hyper text markup language</b></p>}
+        @case ('css') {<p>Cascadin style sheets</p>}
+        @case ('js') {<p>Java script</p>}
+        @default {<p>Linkguagem não encontrada</p>}
+    }
+
+</textarea>
