@@ -8,9 +8,9 @@
     <p *ngSwitchDefault>no value selected</p>
 </div>
 
-<select [(ngModel)]="selectedValue" (change)="selected()" style="width: 300px;" class="form-select">
+<select [(ngModel)]="selectedValue" (change)="selecteOption()" style="width: 300px;" class="form-select">
     <option value="" selected>Select Value</option>
-    <option value="{{ opc }}" *ngFor ="let opc of optionsCourse; index as idx">{{ opc }}</option>
+    <option value="{{ option }}" *ngFor ="let option of optionsCourse; index as idx">{{ option }}</option>
 </select>
 
 <br><br>
@@ -21,9 +21,9 @@
     
 Exemple:
 
-<select [(ngModel)]="selectedValue" (change)="selected()" style="width: 300px;" class="form-select">
+<select [(ngModel)]="selectedValue" (change)="selecteOption()" style="width: 300px;" class="form-select">
     <option value="" selected>Select Value</option>
-    <option value="{ { opc } }" *ngFor ="let opc of optionsCourse; index as idx">{ { opc } }</option>
+    <option value="{ { option } }" *ngFor ="let option of optionsCourse; index as idx">{ { option } }</option>
 </select>
 
     <div [ngSwitch]="course">

@@ -18,7 +18,7 @@ selectedValue:string = ''
 course:string = ''
 
 
-  selected(){
+  selecteOption(){
     this.course = this.selectedValue
   }
 
