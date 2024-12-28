@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+
+
 import { Lesson04Component } from './lesson04/lesson04.component';
 import { Lesson05Component } from './lesson05/lesson05.component';
 import { Lesson06Component } from './lesson06/lesson06.component';
@@ -70,7 +72,6 @@ export const routes: Routes = [
     {path:'lesson35', component:Lesson35Component},
     {path:'lesson36', component:Lesson36Component},
     {path:'lesson37', component:Lesson37Component},
-
     {path:'', redirectTo:'',pathMatch:'full'}
 
 ];
