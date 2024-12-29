@@ -1,1 +1,36 @@
-<p>lesson19 works!</p>
+<h1>{{ name }}</h1>
+<h1>{{ phone }}</h1>
+
+<form>
+    <input type="text" name="name" [(ngModel)]="name" class="form-control" placeholder="type a text... here"><br>
+    <input type="text" name="phone" [(ngModel)]="phone" class="form-control" placeholder="type a phone... here">
+</form>
+
+<br>
+
+<textarea style="width: 700px; height: 400px;" disabled>
+
+    when to use the ngModel inside form, is needed referent attribute name for the inputs
+
+Exemple: 
+
+
+- component.ts
+
+import { FormsModule } from '@angular/forms';
+
+imports: [FormsModule],
+
+    name:string = " "
+    phone:number
+
+- component.html 
+
+<h1>{ { name } }</h1>
+<h1>{ { phone } }</h1>
+
+<input type="text" name="name" [(ngModel)]="name" class="form-control" placeholder="type a name... here">
+<input type="text" name="phone" [(ngModel)]="phone" class="form-control" placeholder="type a phone... here">
+
+
+</textarea>

@@ -1,1 +1,40 @@
-<div>Router link incoming</div>
+
+
+<textarea style="width: 700px; height: 600px;" disabled>
+
+For setting routers in app.config.ts add import routes, and add in provideRouter(routes) as bellow:
+
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+    providers: [provideRouter(routes)]
+    
+  };
+
+Exemple:
+
+- app.router.ts
+
+    export const routes: Routes = [
+        {
+            path:'home', component: classNameComponent
+        }
+    ];
+
+- component.ts
+
+    import { RouterOutlet } from '@angular/router';
+
+    imports: [RouterOutlet],
+
+
+- component-outlet.html
+
+    <router-outlet></router-outlet>
+
+
+- component-load.html
+
+    <a routerLink="/home"></a>    
+
+</textarea>

@@ -1,1 +1,26 @@
-<p>lesson18 works!</p>
+<h1>{{ name }}</h1>
+<input type="text" [(ngModel)]="name" class="form-control" placeholder="type a text... here">
+<br>
+
+<textarea style="width: 700px; height: 400px;" disabled>
+
+    Your text displayerd here: {{name}}
+
+Exemple: 
+
+
+- component.ts
+
+import { FormsModule } from '@angular/forms';
+
+imports: [FormsModule],
+
+    name:string = " "
+
+- component.html 
+
+<h1>{ { name } }</h1>
+<input type="text" [(ngModel)]="name" class="form-control" placeholder="type a text... here">
+
+
+</textarea>
