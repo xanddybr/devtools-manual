@@ -70,3 +70,20 @@
     background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
   }
 
+  .sidenav {
+    text-spacing-trim: auto;
+    padding: 3px;
+    height: 100%;
+    width: 330px;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    background-color:white;
+    overflow: auto;
+    padding-top: 20px;
+ 
+   }
+
+   .main {
+    margin: 80px 0 0 300px;
+   }

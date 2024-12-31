@@ -12,13 +12,11 @@ import { FormsModule } from '@angular/forms';
 
 export class Lesson10Component {
 
-
 optionsCourse:string[]=['html','Css','Js']
 selectedValue:string = ''
 course:string = ''
 
-
-  selecteOption(){
+  selectOption(){
     this.course = this.selectedValue
   }
 

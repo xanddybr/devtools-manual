@@ -1,1 +1,9 @@
-<p>lesson20 works!</p>
+<p>{{form1.value.name}}</p>
+<p>{{form1.value.phone}}</p>
+
+<form [formGroup]="form1">
+    <input type="text" class="form-control" formControlName="name" style="width: 200px;">
+    <br>
+    <input type="text" class="form-control" formControlName="phone" style="width: 200px;">
+    <br>
+</form>
