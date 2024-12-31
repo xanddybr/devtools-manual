@@ -24,7 +24,7 @@
 
     <div class="row align-items-start">
       <div class="sidenav col">
-        <div *ngFor="let item of myitem" style="padding: 0.3rem;">
+        <div *ngFor="let item of myitem" class="mb-2">
           <a class="pill text-align: left;" target="_self" routerLink="{{item.link}}" routerLinkActive="active">{{ item.title }} - {{ item.subtitle }}</a>
         </div>
         <br><br><br><br>

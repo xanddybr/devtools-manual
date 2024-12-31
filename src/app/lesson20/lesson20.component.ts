@@ -15,9 +15,4 @@ export class Lesson20Component {
     phone: new FormControl('')
   })
 
-  limpar():void {
-    this.form1.reset()
-  }
-
-
 }

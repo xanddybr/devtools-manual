@@ -2,8 +2,30 @@
 <p>{{form1.value.phone}}</p>
 
 <form [formGroup]="form1">
-    <input type="text" class="form-control" formControlName="name" style="width: 200px;">
+    <input type="text" class="form-control" formControlName="name" style="width:fit-content;">
     <br>
-    <input type="text" class="form-control" formControlName="phone" style="width: 200px;">
+    <input type="text" class="form-control" formControlName="phone" style="width:fit-content;">
     <br>
 </form>
+
+<textarea style="width: 700px; height: 400px;" disabled>
+
+  For create fromGroupReact type follow as exemple bellow.
+  
+Exemple: 
+
+import { FormControl, FormGroup, ReactiveFormsModule } 
+
+form1 = new FormGroup({ 
+  name: new FormControl(''),
+  phone: new FormControl('')
+})
+
+<form [formGroup]="form1">
+  <input type="text" class="form-control" formControlName="name">
+  <br>
+  <input type="text" class="form-control" formControlName="phone">
+  <br>
+</form>
+
+</textarea>

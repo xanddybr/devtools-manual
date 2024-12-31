@@ -1,1 +1,36 @@
-<p>lesson24 works!</p>
+<P>{{form01.value.name}}</P>
+<P>{{form01.value.phone}}</P>
+<P>{{form01.value.email}}</P>
+
+<form [formGroup]="form01">
+    <input type="text"   formControlName="name"    placeholder="name"    class="form-control">
+    <input type="text"   formControlName="phone"   placeholder="phone"   class="form-control">
+    <input type="text"   formControlName="email"   placeholder="email"   class="form-control">
+
+    <input type="button" value="Cadastrar" class="btn btn-primary">
+    <input type="button" value="Alterar"   class="btn btn-primary">
+    <input type="button" value="Remover"   class="btn btn-primary">
+    <input type="button" value="Cancelar"  class="btn btn-primary">
+</form>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Cidade</th>
+            <th>Selecionar</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><button class="btn btn-primary">Selecionar</button></td>
+        </tr>
+    </tbody>
+</table>
