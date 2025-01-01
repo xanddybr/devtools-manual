@@ -2,7 +2,7 @@ import { Items } from './models/Items';
 import { ServiceLinksService } from './services/service-links.service';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @Component({
@@ -15,7 +15,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 export class AppComponent implements OnInit {
   
-  constructor(private servLinks:ServiceLinksService){ }
+  constructor(private servLinks:ServiceLinksService, private router:Router){ }
 
   myitem:Items[]=[]
   angularImg:string = 'assets/angular.png';
@@ -25,11 +25,10 @@ export class AppComponent implements OnInit {
   filllinks() {
     this.myitem = this.servLinks.fillItensLink() 
   }
-   
-
 
    
   ngOnInit() {
+    this.router.navigateByUrl("/lesson04")
     this.filllinks()
     
   }
