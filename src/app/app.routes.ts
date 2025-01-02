@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-
+import { Lesson03Component } from './lesson03/lesson03.component';
 import { Lesson04Component } from './lesson04/lesson04.component';
 import { Lesson05Component } from './lesson05/lesson05.component';
 import { Lesson06Component } from './lesson06/lesson06.component';
@@ -38,6 +38,7 @@ import { Lesson37Component } from './lesson37/lesson37.component';
 
 
 export const routes: Routes = [ 
+    {path:'lesson03', component:Lesson03Component},
     {path:'lesson04', component:Lesson04Component},
     {path:'lesson05', component:Lesson05Component},
     {path:'lesson06', component:Lesson06Component},

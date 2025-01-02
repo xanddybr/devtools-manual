@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Contact } from '../models/Contact';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceLinksService {
 
+  url:string = "http://localhost:3000/contact"
   fillItensLink() {
     return [
+      {title:"Lesson 03",subtitle:"Installs API Json Server",link:"/lesson03"},
       {title:"Lesson 04",subtitle:"Create Component",link:"/lesson04"},
       {title:"Lesson 05",subtitle:"Text interpolation",link:"/lesson05"},
       {title:"Lesson 06",subtitle:"Event Binding",link:"/lesson06"},
@@ -42,7 +47,13 @@ export class ServiceLinksService {
     ]
   }
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  getContact():Observable<Contact[]>{
+      return this.http.get<Contact[]>(this.url);
+  }
+
+
 
   
 

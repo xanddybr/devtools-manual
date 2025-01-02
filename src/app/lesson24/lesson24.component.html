@@ -1,18 +1,19 @@
 
+
 <form [formGroup]="form01">
     <input type="text"   formControlName="name"    placeholder="name"    class="form-control">
     <input type="text"   formControlName="phone"   placeholder="phone"   class="form-control">
     <input type="text"   formControlName="email"   placeholder="email"   class="form-control">
-    <input type="button" value="Resgister" class="btn btn-primary" (click)="registerContact()">
-    <input type="button" value="Update"   class="btn btn-primary">
-    <input type="button" value="Remove"   class="btn btn-primary">
-    <input type="button" value="Cancel"  class="btn btn-primary" (click)="cleanForm()">
-</form>
+    <input type="button" value="Resgister" [hidden]="btnRegister" class="btn btn-primary" (click)="registerContact()">
+    <input type="button" value="Update"   [hidden]="btnUpdate" class="btn btn-primary" (click)="updateContact()">
+    <input type="button" value="Remove"  [hidden]=btnRemove class="btn btn-primary" (click)="removeContact()">
+    <input type="button" value="Cancel"  class="btn btn-primary" (click)="cancelForm()">
 
-<table class="table table-striped">
+
+<table class="table table-striped" style="color: black;">
     <thead>
         <tr>
-            <th>#</th>
+            <th>Id</th>
             <th>Name</th>
             <th>Phone</th>
             <th>Email</th>
@@ -20,12 +21,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngfor="let c of contact; index as idx">
-            <td>{{ idx }}</td>
+        <tr *ngFor="let c of contact; index as idx">
+            <td>{{ idx + 1 }}</td>
             <td>{{ c.name }}</td>
             <td>{{ c.phone }}</td>
             <td>{{ c.email }}</td>
-            <td><button class="btn btn-primary">Selecionar</button></td>
+            <td><button class="btn btn-primary" (click)="selectContact(idx)">Select</button></td>
         </tr>
     </tbody>
 </table>
+</form>
