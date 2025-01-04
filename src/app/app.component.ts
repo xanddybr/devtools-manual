@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
   myitem:Items[]=[]
   angularImg:string = 'assets/angular.png';
   title:string = 'course_angular';
+  vetor:string[]=[]
   
 
   filllinks() {
@@ -28,10 +29,11 @@ export class AppComponent implements OnInit {
 
    
   ngOnInit() {
-    this.router.navigateByUrl("/lesson04")
+    this.router.navigateByUrl("/lesson01")
     this.filllinks()
     
   }
+
 
 
 

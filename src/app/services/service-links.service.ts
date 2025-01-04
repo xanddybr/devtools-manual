@@ -9,9 +9,12 @@ import { HttpClient } from '@angular/common/http';
 export class ServiceLinksService {
 
   url:string = "http://localhost:3000/contact"
+
   fillItensLink() {
     return [
-      {title:"Lesson 03",subtitle:"Installs API Json Server",link:"/lesson03"},
+      {title:"Lesson 01",subtitle:"Aprentation",link:"/lesson01"},
+      {title:"Lesson 02",subtitle:"?...",link:"/lesson02"},
+      {title:"Lesson 03",subtitle:"Install API Json Server",link:"/lesson03"},
       {title:"Lesson 04",subtitle:"Create Component",link:"/lesson04"},
       {title:"Lesson 05",subtitle:"Text interpolation",link:"/lesson05"},
       {title:"Lesson 06",subtitle:"Event Binding",link:"/lesson06"},
@@ -50,11 +53,20 @@ export class ServiceLinksService {
   constructor(private http:HttpClient) { }
 
   getContact():Observable<Contact[]>{
-      return this.http.get<Contact[]>(this.url);
+    return this.http.get<Contact[]>(this.url);
   }
 
+  registerContact(obj:Contact):Observable<Contact> {
+    return this.http.post<Contact>(this.url,obj)
+  }
 
+  updateContact(obj:Contact):Observable<Contact> {
+    return this.http.put<Contact>(`${this.url}/${obj.id}`,obj)
+  }
 
-  
+  deleteContact(id:string):Observable<any> {
+    return this.http.delete<Contact>(`${this.url}/${id}`)
+  }
+
 
 }

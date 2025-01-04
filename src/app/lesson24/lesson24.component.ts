@@ -1,8 +1,8 @@
 import { ServiceLinksService } from './../services/service-links.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Contact } from '../models/Contact';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Contact } from '../models/Contact';
 
 @Component({
   selector: 'app-lesson24',
@@ -16,67 +16,99 @@ export class Lesson24Component implements OnInit {
   constructor(private service:ServiceLinksService){}
 
   contact:Contact[]=[]
-  index:number
-  btnRemove:boolean
-  btnUpdate:boolean
-  btnRegister:boolean
+  btnRemove:string
+  btnRegister:string
+  btnUpdate:string
+  txtname:string
+  txtphone:string
+  txtemail:string
+  labelBtnUpdate:string = 'Update'
+  labelBtnRegister:string = 'New'
 
   form01 = new FormGroup ({
+    id: new FormControl(''),
     name:  new FormControl(''),
     phone: new FormControl(''),
     email: new FormControl('')
   })
 
   registerContact ():void {
-    this.contact.push(this.form01.value as Contact)
+    this.service.registerContact(this.form01.value as Contact).subscribe((v)=> { this.contact.push(v)})
     this.form01.reset()
   
   }
 
   updateContact():void {
-    this.contact[this.index] = this.form01.value as Contact
-    this.btnRemove = true
-    this.btnUpdate = true
-    this.cancelForm()
+    /*
+    this.service.updateContact(this.form01.value as Contact).subscribe(objUpdated =>{
+      let idxChanged = this.contact.findIndex(obj => {
+          return this.form01.value.id === obj.id
+      }) 
+     this.contact[idxChanged] = objUpdated
+    })
+    */
+    this.labelBtnUpdate = 'Confirm'
+    this.textBoxRotines('unlock')
+    
   }
 
   removeContact():void {
-    this.contact.splice(this.index,1)
-    this.btnRemove = true
-    this.btnUpdate = true
+
+    this.service.deleteContact(this.form01.value.id).subscribe(()=>{
+      let idxRemoved = this.contact.findIndex(obj => {
+        return obj.id === this.form01.value.id
+      })
+      this.contact.splice(idxRemoved, 1)
+     
+    })
     this.cancelForm()
   }
 
   selectContact(index:number):void {
-    this.index = index
     this.form01.setValue({
-      name: this.contact[index].name,
+      id:    this.contact[index].id,
+      name:  this.contact[index].name,
       phone: this.contact[index].phone,
       email: this.contact[index].email
     })
-    this.btnRegister = true
-    this.contact.length >= 0 ? this.btnRemove = false : this.btnRemove = true
-    this.contact.length >= 0 ? this.btnUpdate = false : this.btnUpdate = true
+    this.btnRegister = 'hidden'
   }
 
   cancelForm():void {
     this.form01.reset()
-    this.btnRegister = false
-    this.btnRemove = true
-    this.btnUpdate = true
-    
+
   }
 
   loadContacts():void {
-    this.service.getContact().subscribe(value => { this.contact = value })
-    this.btnRemove = true
-    this.btnUpdate = true
+
+    this.service.getContact().subscribe(
+      (v) => {this.contact = v}, 
+      (e) => {console.log("Erro ao carregar os datos da API")})
+
 
   }
 
   ngOnInit():void {
     this.loadContacts()
+    this.textBoxRotines("lock")
   }
 
+  updateRotine(option:boolean){
+    //option === false ? this.btnUpdate = 'readonly' : this.btnUpdate = ''
+  }
+
+  textBoxRotines(option:string):void {
+    if(option === 'lock'){
+      this.txtname = 'readonly'
+      this.txtphone = 'readonly'
+      this.txtemail = 'readonly'
+    } 
+
+    if(option === 'unlock'){
+      this.txtname = ''
+      this.txtphone = ''
+      this.txtemail = ''
+    } 
+  }
 
 }

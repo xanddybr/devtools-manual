@@ -87,3 +87,7 @@
    .main {
     margin: 80px 0 0 300px;
    }
+
+   .sideBar {
+    background: color-mix(in srgb, var(--pill-accent) 100%, transparent);
+   }

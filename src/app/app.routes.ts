@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { Lesson01Component } from './lesson01/lesson01.component';
+import { Lesson02Component } from './lesson02/lesson02.component';
 import { Lesson03Component } from './lesson03/lesson03.component';
 import { Lesson04Component } from './lesson04/lesson04.component';
 import { Lesson05Component } from './lesson05/lesson05.component';
@@ -38,6 +40,8 @@ import { Lesson37Component } from './lesson37/lesson37.component';
 
 
 export const routes: Routes = [ 
+    {path:'lesson01', component:Lesson01Component},
+    {path:'lesson02', component:Lesson02Component},
     {path:'lesson03', component:Lesson03Component},
     {path:'lesson04', component:Lesson04Component},
     {path:'lesson05', component:Lesson05Component},
