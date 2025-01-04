@@ -33,23 +33,18 @@ export class Lesson24Component implements OnInit {
   })
 
   registerContact ():void {
-    this.service.registerContact(this.form01.value as Contact).subscribe((v)=> { this.contact.push(v)})
-    this.form01.reset()
+    //this.service.registerContact(this.form01.value as Contact).subscribe((v)=> { this.contact.push(v)})
+    this.registerRoutine()
   
   }
 
   updateContact():void {
-    /*
     this.service.updateContact(this.form01.value as Contact).subscribe(objUpdated =>{
       let idxChanged = this.contact.findIndex(obj => {
           return this.form01.value.id === obj.id
       }) 
      this.contact[idxChanged] = objUpdated
     })
-    */
-    this.labelBtnUpdate = 'Confirm'
-    this.textBoxRotines('unlock')
-    
   }
 
   removeContact():void {
@@ -59,7 +54,6 @@ export class Lesson24Component implements OnInit {
         return obj.id === this.form01.value.id
       })
       this.contact.splice(idxRemoved, 1)
-     
     })
     this.cancelForm()
   }
@@ -80,17 +74,12 @@ export class Lesson24Component implements OnInit {
   }
 
   loadContacts():void {
-
-    this.service.getContact().subscribe(
-      (v) => {this.contact = v}, 
-      (e) => {console.log("Erro ao carregar os datos da API")})
-
-
+    this.service.getContact().subscribe(result => { this.contact = result})
   }
 
   ngOnInit():void {
     this.loadContacts()
-    this.textBoxRotines("lock")
+    this.textBoxRotines("locked")
   }
 
   updateRotine(option:boolean){
@@ -98,17 +87,21 @@ export class Lesson24Component implements OnInit {
   }
 
   textBoxRotines(option:string):void {
-    if(option === 'lock'){
+    if(option === 'locked'){
       this.txtname = 'readonly'
       this.txtphone = 'readonly'
       this.txtemail = 'readonly'
     } 
 
-    if(option === 'unlock'){
+    if(option === 'unlocked'){
       this.txtname = ''
       this.txtphone = ''
       this.txtemail = ''
     } 
+  }
+
+  registerRoutine(){
+    this.textBoxRotines('unlocked')
   }
 
 }
