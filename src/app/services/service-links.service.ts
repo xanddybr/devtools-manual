@@ -56,12 +56,12 @@ export class ServiceLinksService {
     return this.http.get<Contact[]>(this.url);
   }
 
-  registerContact(obj:Contact):Observable<Contact> {
+  registerContact(obj:Contact):Observable<any>{
     return this.http.post<Contact>(this.url,obj)
-  }
+  } 
 
   updateContact(obj:Contact):Observable<Contact> {
-    return this.http.put<Contact>(`${this.url}/${obj.id}`,obj)
+    return this.http.put<Contact>(`${this.url}/${obj}`,obj)
   }
 
   deleteContact(id:string):Observable<any> {

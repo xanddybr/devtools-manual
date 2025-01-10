@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Contact } from '../models/Contact';
 
+
 @Component({
   selector: 'app-lesson24',
   standalone: true,
@@ -23,27 +24,38 @@ export class Lesson24Component implements OnInit {
   txtphone:string
   txtemail:string
   labelBtnUpdate:string = 'Update'
-  labelBtnRegister:string = 'New'
+  labelBtnRegister:string = 'New Register'
+  counter:number
+  idtab:number
+  bloked:boolean=true
+  
+
+  
 
   form01 = new FormGroup ({
-    id: new FormControl(''),
+    id:    new FormControl(''),
     name:  new FormControl(''),
     phone: new FormControl(''),
     email: new FormControl('')
   })
 
+  counterId():any {
+  let soma = this.counter++
+ }
+
   registerContact ():void {
-    //this.service.registerContact(this.form01.value as Contact).subscribe((v)=> { this.contact.push(v)})
-    this.registerRoutine()
-  
+    this.service.registerContact(this.form01.value as Contact).subscribe((v)=> { this.contact.push(v)})
+    console.log(this.counter)
   }
 
-  updateContact():void {
+  updateContact() {
     this.service.updateContact(this.form01.value as Contact).subscribe(objUpdated =>{
       let idxChanged = this.contact.findIndex(obj => {
-          return this.form01.value.id === obj.id
-      }) 
+          return  obj === this.form01.value
+      })
+
      this.contact[idxChanged] = objUpdated
+     
     })
   }
 
@@ -51,36 +63,31 @@ export class Lesson24Component implements OnInit {
 
     this.service.deleteContact(this.form01.value.id).subscribe(()=>{
       let idxRemoved = this.contact.findIndex(obj => {
-        return obj.id === this.form01.value.id
+        return obj === this.form01.value
       })
       this.contact.splice(idxRemoved, 1)
     })
     this.cancelForm()
   }
 
-  selectContact(index:number):void {
+  selectContact(idx:number):void {
+    this.idtab = idx
     this.form01.setValue({
-      id:    this.contact[index].id,
-      name:  this.contact[index].name,
-      phone: this.contact[index].phone,
-      email: this.contact[index].email
+      id:    this.contact[idx].id,
+      name:  this.contact[idx].name,
+      phone: this.contact[idx].phone,
+      email: this.contact[idx].email
     })
-    this.btnRegister = 'hidden'
   }
 
   cancelForm():void {
     this.form01.reset()
-
   }
 
   loadContacts():void {
     this.service.getContact().subscribe(result => { this.contact = result})
   }
-
-  ngOnInit():void {
-    this.loadContacts()
-    this.textBoxRotines("locked")
-  }
+  
 
   updateRotine(option:boolean){
     //option === false ? this.btnUpdate = 'readonly' : this.btnUpdate = ''
@@ -101,7 +108,12 @@ export class Lesson24Component implements OnInit {
   }
 
   registerRoutine(){
-    this.textBoxRotines('unlocked')
+
+  }
+
+  ngOnInit():void {
+    this.loadContacts()
+
   }
 
 }
