@@ -1,29 +1,39 @@
-<form [formGroup]="form01">
-    <input type="text"   formControlName="name"    placeholder="name"    class="form-control" [readOnly]="txtname">
-    <input type="text"   formControlName="phone"   placeholder="phone"   class="form-control" [readOnly]="txtphone">
-    <input type="text"   formControlName="email"   placeholder="email"   class="form-control" [readOnly]="txtemail">
-    <input type="button" [hidden]="btnRegister"     [value]=labelBtnRegister  class="btn btn-primary" (click)="registerContact()">
-    <input type="button" [hidden]="btnUpdate"       [value]=labelBtnUpdate    class="btn btn-primary" (click)="updateContact()">
-    <input type="button" [hidden]="btnRemove"       value="Remove" class="btn btn-primary" (click)="removeContact()">
-    <input type="button" value="Cancel"  class="btn btn-primary" (click)="cancelForm()">
-<table class="table table-striped" style="color: black;">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Selecionar</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let c of contact; index as idx">
-            <td>{{ c.id }}</td>
-            <td>{{ c.name }}</td>
-            <td>{{ c.phone }}</td>
-            <td>{{ c.email }}</td>
-            <td><button class="btn btn-primary" (click)="selectContact(idx)">Select</button></td>
-        </tr>
-    </tbody>
-</table>
-</form>
+<h2>Introduction of simple CRUD project</h2>
+<h3>For running this project, is needed run json-server to provide the contacts in json file</h3>
+
+<div>
+
+    <form [formGroup]="form01">
+        <input type="text"   formControlName="id"      placeholder="id"      class="form-control">
+        <input type="text"   formControlName="name"    placeholder="name"    class="form-control" [readOnly]="txtname">
+        <input type="text"   formControlName="phone"   placeholder="phone"   class="form-control" [readOnly]="txtphone">
+        <input type="text"   formControlName="email"   placeholder="email"   class="form-control" [readOnly]="txtemail">
+        <input type="button" [hidden]="btnRegister"     [value]=labelBtnRegister  class="btn btn-primary" (click)="registerContact()">
+        <input type="button" [hidden]="btnUpdate"       [value]=labelBtnUpdate    class="btn btn-primary" (click)="updateContact()">
+        <input type="button" [hidden]="btnRemove"       value="Remove" class="btn btn-primary" (click)="removeContact()">
+        <input type="button" value="Cancel"  class="btn btn-primary" (click)="cancelForm()">
+    <table class="table table-striped" style="color: black;">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Selecionar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of contact; index as idx">
+                <td>{{ c.id }}</td>
+                <td>{{ c.name }}</td>
+                <td>{{ c.phone }}</td>
+                <td>{{ c.email }}</td>
+                <td><button class="btn btn-primary" (click)="selectContact(idx)">Select</button></td>
+            </tr>
+        </tbody>
+    </table>
+    </form>
+
+</div>
+
+

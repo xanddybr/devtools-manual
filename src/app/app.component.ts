@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
 
    
   ngOnInit() {
-    this.router.navigateByUrl("/lesson01")
+    this.router.navigateByUrl("/lesson24")
     this.filllinks()
     
   }

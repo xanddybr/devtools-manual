@@ -16,6 +16,13 @@ export class Lesson24Component implements OnInit {
 
   constructor(private service:ServiceLinksService){}
 
+  form01 = new FormGroup ({
+    id:    new FormControl(''),
+    name:  new FormControl(''),
+    phone: new FormControl(''),
+    email: new FormControl('')
+  })
+
   contact:Contact[]=[]
   btnRemove:string
   btnRegister:string
@@ -25,37 +32,24 @@ export class Lesson24Component implements OnInit {
   txtemail:string
   labelBtnUpdate:string = 'Update'
   labelBtnRegister:string = 'New Register'
-  counter:number
   idtab:number
-  bloked:boolean=true
+  bloked:boolean = true
   
-
-  
-
-  form01 = new FormGroup ({
-    id:    new FormControl(''),
-    name:  new FormControl(''),
-    phone: new FormControl(''),
-    email: new FormControl('')
-  })
-
-  counterId():any {
-  let soma = this.counter++
- }
 
   registerContact ():void {
-    this.service.registerContact(this.form01.value as Contact).subscribe((v)=> { this.contact.push(v)})
-    console.log(this.counter)
+    this.service.registerContact(this.form01.value as Contact).subscribe((v)=> {this.contact.push(v)})
+
   }
+
 
   updateContact() {
     this.service.updateContact(this.form01.value as Contact).subscribe(objUpdated =>{
       let idxChanged = this.contact.findIndex(obj => {
-          return  obj === this.form01.value
-      })
+          return this.form01.value.id === obj.id         
+    })
 
-     this.contact[idxChanged] = objUpdated
-     
+    this.contact[idxChanged] = objUpdated
+    
     })
   }
 
@@ -84,8 +78,11 @@ export class Lesson24Component implements OnInit {
     this.form01.reset()
   }
 
+
+
   loadContacts():void {
     this.service.getContact().subscribe(result => { this.contact = result})
+    this.idtab + 1
   }
   
 
@@ -113,6 +110,7 @@ export class Lesson24Component implements OnInit {
 
   ngOnInit():void {
     this.loadContacts()
+    
 
   }
 

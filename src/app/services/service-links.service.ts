@@ -61,7 +61,7 @@ export class ServiceLinksService {
   } 
 
   updateContact(obj:Contact):Observable<Contact> {
-    return this.http.put<Contact>(`${this.url}/${obj}`,obj)
+    return this.http.put<Contact>(`${this.url}/${obj.id}`,obj)
   }
 
   deleteContact(id:string):Observable<any> {
