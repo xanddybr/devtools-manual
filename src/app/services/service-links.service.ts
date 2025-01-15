@@ -38,7 +38,7 @@ export class ServiceLinksService {
       {title:"Lesson 25",subtitle:"Table Create",link:"/lesson25"},
       {title:"Lesson 26",subtitle:"Reactive Form Implementation",link:"/lesson26"},
       {title:"Lesson 27",subtitle:"Validators",link:"/lesson27"},
-      {title:"Lesson 28",subtitle:"Create Model Person",link:"/lesson28"},
+      {title:"Lesson 28",subtitle:"Create Model Contact",link:"/lesson28"},
       {title:"Lesson 29",subtitle:"Messages of validation",link:"/lesson29"},
       {title:"Lesson 30",subtitle:"Property disable",link:"/lesson30"},
       {title:"Lesson 31",subtitle:"Create Vetor",link:"/lesson31"},

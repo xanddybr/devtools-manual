@@ -1,6 +1,6 @@
 import { ServiceLinksService } from './../services/service-links.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, MaxValidator, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Contact } from '../models/Contact';
 
@@ -18,7 +18,7 @@ export class Lesson24Component implements OnInit {
 
   form01 = new FormGroup ({
     id:    new FormControl(''),
-    name:  new FormControl(''),
+    name:  new FormControl('',[Validators.required]),
     phone: new FormControl(''),
     email: new FormControl('')
   })
@@ -31,24 +31,18 @@ export class Lesson24Component implements OnInit {
   btnUpdate:boolean
   btnCancel:boolean
   btnSelect:boolean
-
-  txtname:string
-  txtphone:string
-  txtemail:string
-
+  inputReadOnly:string
   labelBtnUpdate:string
   labelBtnRegister:string 
   labelBtnDelete:string
-
   arrayCount:number
   idtab:number 
   bloked:boolean = true
   
-
   registerContact ():void {
 
     switch (this.labelBtnRegister) {
-      case "New Register":
+      case "New":
         let c = this.contact.length + 1
         this.form01.setValue({
         id:  c.toString(),
@@ -68,36 +62,41 @@ export class Lesson24Component implements OnInit {
       this.cancelForm()
       break;
     }
- }
-
-
+  }
+ 
   updateContact() {
 
     switch (this.labelBtnUpdate){
       case "Update" :
         this.labelBtnUpdate = "Confirm"
+        this.classTextBox = "form-control"
         this.btnDelete = true
         this.btnSelect = true
-        this.classTextBox = "form-control"
       break;
 
       case "Confirm" :
+        if(this.form01.valid){
         this.service.updateContact(this.form01.value as Contact).subscribe(objUpdated =>{
           let idxChanged = this.contact.findIndex(obj => {
               return this.form01.value.id === obj.id         
         })
         this.contact[idxChanged] = objUpdated
         })
+        } else {
+          this.form01.hasError
+        }
+        
+        
         this.labelBtnUpdate = "Update"
         this.classTextBox = "form-control inputReadOnly"
         this.btnDelete = false
         this.btnRegister = true
         this.btnSelect = false
         this.btnCancel = false
-       
-      break;
       
+      break;           
     }
+   
    }
 
   removeContact():void {
@@ -119,6 +118,7 @@ export class Lesson24Component implements OnInit {
       phone: this.contact[idx].phone,
       email: this.contact[idx].email
     })
+
     this.btnUpdate = false
     this.btnDelete = false
     this.btnCancel = false
@@ -129,17 +129,14 @@ export class Lesson24Component implements OnInit {
   cancelForm():void {
     this.form01.reset()
     this.labelBtnUpdate = 'Update'
-    this.labelBtnRegister = 'New Register'
+    this.labelBtnRegister = 'New'
     this.labelBtnDelete  = "Delete"
     this.classTextBox = "form-control inputReadOnly"
-    this.btnSelect = false
-    this.btnRegister = false
-    this.btnCancel = true
     this.btnUpdate = true
     this.btnDelete = true
     this.btnCancel = true
-    
-
+    this.btnSelect = false
+    this.btnRegister = false   
   }
 
   loadContacts():void {
@@ -147,44 +144,34 @@ export class Lesson24Component implements OnInit {
     this.arrayCount = this.contact.length
   }
   
-
-  updateRotine(option:boolean){
-    //option === false ? this.btnUpdate = 'readonly' : this.btnUpdate = ''
-  }
-
-  textBoxRotines(option:string):void {
-    if(option === 'locked'){
-      this.txtname = 'readonly'
-      this.txtphone = 'readonly'
-      this.txtemail = 'readonly'
-    } 
-
-    if(option === 'unlocked'){
-      this.txtname = ''
-      this.txtphone = ''
-      this.txtemail = ''
-    } 
-  }
-
-  registerRoutine(){
-
+  routineElementsForm(){
+    this.labelBtnUpdate = 'Update'
+    this.labelBtnRegister = 'New'
+    this.labelBtnDelete  = "Delete"
+    this.classTextBox = "form-control inputReadOnly"
+    this.btnUpdate = true
+    this.btnDelete = true
+    this.btnCancel = true
+    this.btnSelect = false
+    this.btnRegister = false  
   }
 
   ngOnInit():void {
 
-  this.labelBtnUpdate = 'Update'
-  this.labelBtnRegister = 'New Register'
-  this.labelBtnDelete  = "Delete"
-  this.classTextBox = "form-control inputReadOnly"
-  this.btnUpdate = true
-  this.btnDelete = true
-  this.btnCancel = true
+    this.labelBtnUpdate = 'Update'
+    this.labelBtnRegister = 'New'
+    this.labelBtnDelete  = "Delete"
+    this.classTextBox = "form-control inputReadOnly"
+    this.btnUpdate = true
+    this.btnDelete = true
+    this.btnCancel = true
+    this.loadContacts()
   
-  
-  this.loadContacts()
- 
-
-
   }
+
+
+
+ get name() { return this.form01.get('name')}
+
 
 }
