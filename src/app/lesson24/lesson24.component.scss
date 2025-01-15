@@ -12,3 +12,12 @@ input[type="button"]{
     margin-left: 5px;
     margin-right: 5px;
 }
+
+.inputReadOnly {
+    background-color: white;
+    border-style: none;
+}
+
+.inputEditing {
+    border-style: inherit;
+}

@@ -34,7 +34,7 @@ export class ServiceLinksService {
       {title:"Lesson 20",subtitle:"Reactive forms Model",link:"/lesson20"},
       {title:"Lesson 21",subtitle:"Project brief",link:"/lesson21"},
       {title:"Lesson 23",subtitle:"StrictNullChecks",link:"/lesson23"},
-      {title:"Lesson 24",subtitle:"Form Create",link:"/lesson24"},
+      {title:"Lesson 24",subtitle:"Introduction CRUD Project",link:"/lesson24"},
       {title:"Lesson 25",subtitle:"Table Create",link:"/lesson25"},
       {title:"Lesson 26",subtitle:"Reactive Form Implementation",link:"/lesson26"},
       {title:"Lesson 27",subtitle:"Validators",link:"/lesson27"},

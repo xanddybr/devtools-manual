@@ -3,15 +3,17 @@
 
 <div>
 
-    <form [formGroup]="form01">
-        <input type="text"   formControlName="id"      placeholder="id"      class="form-control">
-        <input type="text"   formControlName="name"    placeholder="name"    class="form-control" [readOnly]="txtname">
-        <input type="text"   formControlName="phone"   placeholder="phone"   class="form-control" [readOnly]="txtphone">
-        <input type="text"   formControlName="email"   placeholder="email"   class="form-control" [readOnly]="txtemail">
-        <input type="button" [hidden]="btnRegister"     [value]=labelBtnRegister  class="btn btn-primary" (click)="registerContact()">
-        <input type="button" [hidden]="btnUpdate"       [value]=labelBtnUpdate    class="btn btn-primary" (click)="updateContact()">
-        <input type="button" [hidden]="btnRemove"       value="Remove" class="btn btn-primary" (click)="removeContact()">
-        <input type="button" value="Cancel"  class="btn btn-primary" (click)="cancelForm()">
+    <form [formGroup]="form01" (ngSubmit)="onSubmit()">
+
+        <input type="text"   formControlName="id"      class="form-control inputReadOnly"  readonly>
+        <input type="text"   formControlName="name"    placeholder ="name"  [class]="classTextBox" [readOnly]="txtname">
+
+        <input type="text"   formControlName="phone"   placeholder ="phone"   [class]="classTextBox" [readOnly]="txtphone">
+        <input type="text"   formControlName="email"   placeholder ="email"   [class]="classTextBox" [readOnly]="txtemail">
+        <input type="button"  [value]=labelBtnRegister  class="btn btn-primary" (click)="registerContact()" [disabled]="btnRegister">
+        <input type="button"  [value]=labelBtnUpdate    class="btn btn-primary" (click)="updateContact()" [disabled]="btnUpdate">
+        <input type="button"  [value]=labelBtnDelete class="btn btn-primary" (click)="removeContact()" [disabled]="btnDelete">
+        <input type="button" value="Cancel"  class="btn btn-primary" (click)="cancelForm()" [disabled]="btnCancel">
     <table class="table table-striped" style="color: black;">
         <thead>
             <tr>
@@ -28,7 +30,7 @@
                 <td>{{ c.name }}</td>
                 <td>{{ c.phone }}</td>
                 <td>{{ c.email }}</td>
-                <td><button class="btn btn-primary" (click)="selectContact(idx)">Select</button></td>
+                <td><button class="btn btn-primary" (click)="selectContact(idx)" [disabled]="btnSelect">Select</button></td>
             </tr>
         </tbody>
     </table>
