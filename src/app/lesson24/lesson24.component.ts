@@ -1,43 +1,48 @@
 import { ServiceLinksService } from './../services/service-links.service';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, MaxValidator, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Contact } from '../models/Contact';
-
+import { ModalComponent } from '../modal/modal.component';
+import { ModalServiceService } from '../services/modal-service.service';
 
 @Component({
   selector: 'app-lesson24',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, ModalComponent],
   templateUrl: './lesson24.component.html',
   styleUrl: './lesson24.component.scss'
 })
+
 export class Lesson24Component implements OnInit {
 
-  constructor(private service:ServiceLinksService){}
+  constructor(private service:ServiceLinksService, private mdService:ModalServiceService){}
 
   form01 = new FormGroup ({
     id:    new FormControl(''),
-    name:  new FormControl('',[Validators.required]),
-    phone: new FormControl(''),
-    email: new FormControl('')
+    name:  new FormControl('',[Validators.required] ),
+    phone: new FormControl('',[Validators.required]),
+    email: new FormControl('',[Validators.required])
   })
-
+  
+  errors:string[]=[]
   contact:Contact[]=[]
   classTextBox:string
-
   btnDelete:boolean
   btnRegister:boolean
   btnUpdate:boolean
   btnCancel:boolean
   btnSelect:boolean
-  inputReadOnly:string
+  inputRdln:string
   labelBtnUpdate:string
   labelBtnRegister:string 
   labelBtnDelete:string
   arrayCount:number
-  idtab:number 
-  bloked:boolean = true
+  idxMain:number 
+  dialogModal:boolean = false
+
+
+  
   
   registerContact ():void {
 
@@ -54,13 +59,21 @@ export class Lesson24Component implements OnInit {
       this.btnCancel = false
       this.labelBtnRegister = "Save"
       this.classTextBox = "form-control"
+      this.inputRdln = ""
       break;
 
      case "Save":
+      if(this.form01.get('name').invalid){
+        this.mdService.setMsg("This fiel don't stay empty!")
+        this.openDialog()
+        return
+      }
       this.service.registerContact(this.form01.value as Contact).subscribe((v)=> {this.contact.push(v)})
       this.classTextBox = "form-control inputReadOnly"
+      this.inputRdln = "readonly"
       this.cancelForm()
-      break;
+      break;  
+         
     }
   }
  
@@ -70,8 +83,10 @@ export class Lesson24Component implements OnInit {
       case "Update" :
         this.labelBtnUpdate = "Confirm"
         this.classTextBox = "form-control"
+        this.inputRdln = ""
         this.btnDelete = true
         this.btnSelect = true
+        this.btnCancel = false
       break;
 
       case "Confirm" :
@@ -85,14 +100,7 @@ export class Lesson24Component implements OnInit {
         } else {
           this.form01.hasError
         }
-        
-        
-        this.labelBtnUpdate = "Update"
-        this.classTextBox = "form-control inputReadOnly"
-        this.btnDelete = false
-        this.btnRegister = true
-        this.btnSelect = false
-        this.btnCancel = false
+        this.cancelForm()
       
       break;           
     }
@@ -111,7 +119,7 @@ export class Lesson24Component implements OnInit {
   }
 
   selectContact(idx:number):void {
-    this.idtab = idx
+    this.idxMain = idx
     this.form01.setValue({
       id:    this.contact[idx].id,
       name:  this.contact[idx].name,
@@ -121,22 +129,23 @@ export class Lesson24Component implements OnInit {
 
     this.btnUpdate = false
     this.btnDelete = false
-    this.btnCancel = false
-    this.btnRegister = true
     
   }
 
   cancelForm():void {
-    this.form01.reset()
+    this.btnSelect = false
+    this.btnCancel = true
     this.labelBtnUpdate = 'Update'
     this.labelBtnRegister = 'New'
     this.labelBtnDelete  = "Delete"
     this.classTextBox = "form-control inputReadOnly"
+    this.inputRdln = "readonly"
+    this.selectContact(this.idxMain)
     this.btnUpdate = true
     this.btnDelete = true
-    this.btnCancel = true
-    this.btnSelect = false
-    this.btnRegister = false   
+    
+ 
+   
   }
 
   loadContacts():void {
@@ -144,34 +153,67 @@ export class Lesson24Component implements OnInit {
     this.arrayCount = this.contact.length
   }
   
-  routineElementsForm(){
-    this.labelBtnUpdate = 'Update'
-    this.labelBtnRegister = 'New'
-    this.labelBtnDelete  = "Delete"
-    this.classTextBox = "form-control inputReadOnly"
-    this.btnUpdate = true
-    this.btnDelete = true
-    this.btnCancel = true
-    this.btnSelect = false
-    this.btnRegister = false  
-  }
 
   ngOnInit():void {
 
+    $('body').keyup(function(event) {
+      if (event.keyCode == 27) {
+        document.body.style.overflow = ''}
+    })
+
+    this.loadContacts()
     this.labelBtnUpdate = 'Update'
     this.labelBtnRegister = 'New'
     this.labelBtnDelete  = "Delete"
+    this.inputRdln = "readonly"
     this.classTextBox = "form-control inputReadOnly"
     this.btnUpdate = true
     this.btnDelete = true
     this.btnCancel = true
-    this.loadContacts()
+    
   
   }
 
+validateForm(): boolean { 
+
+    if (this.form01.get('name').invalid) { 
+      this.errors.push('Name is required'); 
+    } 
+    
+    if (this.form01.get('phone').invalid) { 
+      this.errors.push('Email is required'); 
+    }
+      
+    if (this.form01.get('email').invalid) {
+       this.errors.push('Password is required');
+    }
+    
+    if (this.errors.length > 0) { 
+      
+      
+      }
+      
+      return true; 
+    
+    }
+
+    openDialog() {
+      const dg = document.querySelector('dialog')
+      document.body.style.overflow = 'hidden';
+      dg.showModal()
+    }
+
+    closeDialog(){
+      const dg = document.querySelector('dialog')
+      document.body.style.overflow = '';
+      dg.close()
+    }
 
 
- get name() { return this.form01.get('name')}
+    }
+
+    
+    
 
 
-}
+
