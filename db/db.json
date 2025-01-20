@@ -11,6 +11,12 @@
       "name": "Anastacia",
       "phone": "2136663236",
       "email": "anstacia@bol.com.br"
+    },
+    {
+      "id": "3",
+      "name": "Arthur Alexandre",
+      "phone": "98555666987",
+      "email": "art@live.com.br"
     }
   ]
 }
