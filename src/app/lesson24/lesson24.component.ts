@@ -3,18 +3,17 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Contact } from '../models/Contact';
-import { ModalComponent } from '../modal/modal.component';
 import { ModalServiceService } from '../services/modal-service.service';
 
 @Component({
   selector: 'app-lesson24',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, ModalComponent],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './lesson24.component.html',
   styleUrl: './lesson24.component.scss'
 })
 
-export class Lesson24Component implements OnInit, OnChanges {
+export class Lesson24Component implements OnInit {
 
   constructor(private service:ServiceLinksService, private mdService:ModalServiceService){}
 
@@ -41,15 +40,11 @@ export class Lesson24Component implements OnInit, OnChanges {
   idxMain:number 
   dialogModal:boolean = false
   msgParent:string
+  txtContent:string
+  txtTitle:string
 
 
-  ngOnInit():void {
-
-    $('body').keyup(function(event) {
-      if (event.keyCode == 27) {
-        document.body.style.overflow = ''}
-    })
-
+  ngOnInit():void { 
     
     this.loadContacts()
     this.labelBtnUpdate = 'Update'
@@ -60,13 +55,15 @@ export class Lesson24Component implements OnInit, OnChanges {
     this.btnUpdate = true
     this.btnDelete = true
     this.btnCancel = true
-    this.mdService.setMsg('This fiel dont stay empty in 2025!')
-    
+    this.enableOverflow()
   }
-  
-  ngOnChanges(): void {
-    
-  }
+
+   enableOverflow(){
+    $('body').keyup(function(event) {
+      if (event.keyCode == 27) {
+        document.body.style.overflow = ''}
+    })
+   }
   
   registerContact ():void {
 
@@ -87,8 +84,9 @@ export class Lesson24Component implements OnInit, OnChanges {
       break;
 
      case "Save":
+
       if(this.form01.get('name').invalid){
-        this.openDialog()
+        this.openDialog("- The name field can'not be empty!","Learn-Anguar 17")
         return
       }
       this.service.registerContact(this.form01.value as Contact).subscribe((v)=> {this.contact.push(v)})
@@ -166,9 +164,7 @@ export class Lesson24Component implements OnInit, OnChanges {
     this.selectContact(this.idxMain)
     this.btnUpdate = true
     this.btnDelete = true
-    
- 
-   
+       
   }
 
   loadContacts():void {
@@ -202,8 +198,10 @@ validateForm(): boolean {
     
     }
 
-    openDialog() {
+    openDialog(content:string, title:string) {
       const dg = document.querySelector('dialog')
+      this.txtContent = content
+      this.txtTitle = title
       document.body.style.overflow = 'hidden';
       dg.showModal()
     }
@@ -214,8 +212,17 @@ validateForm(): boolean {
       dg.close()
     }
 
+    setMsg(msg:string):void {
+      this.txtContent = msg
+    }
+
+    getMsg():string {
+      return this.txtContent
+    }
 
     }
+
+    
 
     
     

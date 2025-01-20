@@ -4,13 +4,12 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { ModalComponent } from './modal/modal.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,RouterOutlet,RouterLink, MatSlideToggleModule,RouterLinkActive, ModalComponent],
+  imports: [CommonModule,RouterOutlet,RouterLink, MatSlideToggleModule,RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -1,16 +1,38 @@
-<h2>This is a simple CRUD project with basic features for make your project</h2>
+<h2>This is a simple CRUD project. With him your will learn things as: Enable and disable button,  change label, modal popup, set twice functions in a function single button, and much more!</h2>
 <h3>For running this project, is needed run json-server to provide the contacts in json file</h3>
 
-<button type="button" id="btnRun" class="btn btn-primary">
-  Run...
-</button>
 
-<app-modal [msgChild]="msgParent"></app-modal>
+<!-- Modal1 -->
+<dialog> 
+
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">{{ txtTitle }}</h5>     
+  </div>
+  <div class="modal-body">
+     {{ txtContent }}
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closeDialog()">Close</button>
+  </div>
+
+</dialog>
+
+ <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+          <div class="modal-body">
+              <p>Esse procedimento pode levar alguns minutos. Por favor aguarde!</p>
+          </div>
+      </div>
+
+  </div>
+</div>
+
 
 <div>
-
     <form [formGroup]="form01">
-        <input type="text"   formControlName="id"      class="form-control inputReadOnly"  readonly>            
+        <input formControlName="id" class="form-control inputReadOnly" readonly>            
         <input type="text"   formControlName="name"    placeholder ="name"    [class]="classTextBox" [readOnly]="inputRdln">
         <input type="text"   formControlName="phone"   placeholder ="phone"   [class]="classTextBox" [readOnly]="inputRdln">
         <input type="text"   formControlName="email"   placeholder ="email"   [class]="classTextBox" [readOnly]="inputRdln">
@@ -44,6 +66,6 @@
 
 
 
-<!-- Modal -->
+
  
 

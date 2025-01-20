@@ -1,3 +1,15 @@
+dialog {
+    border: none;
+    border-radius: 1ch;
+    width: 50ch;
+}   
+
+dialog::backdrop{
+    background:black;
+    opacity: .5 ;
+    overflow-y: hidden;       
+}
+
 form{
     width: 500px;
     margin: 30px auto;
