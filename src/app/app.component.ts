@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ModalComponent } from './modal/modal.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule,RouterOutlet,RouterLink, MatSlideToggleModule,RouterLinkActive],
+  imports: [CommonModule,RouterOutlet,RouterLink, MatSlideToggleModule,RouterLinkActive, ModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -21,7 +23,6 @@ export class AppComponent implements OnInit {
   angularImg:string = 'assets/angular.png';
   title:string = 'course_angular';
   vetor:string[]=[]
-  
 
   filllinks() {
     this.myitem = this.servLinks.fillItensLink() 
@@ -34,6 +35,9 @@ export class AppComponent implements OnInit {
     
   }
 
+  runningModal(){
+  
+  }
 
 
 

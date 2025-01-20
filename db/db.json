@@ -3,26 +3,14 @@
     {
       "id": "1",
       "name": "Alexandre",
-      "phone": "2198660926",
-      "email": "alessouza@live.com"
+      "phone": "+55(21)2198660926",
+      "email": "alessouza@live.com.br"
     },
     {
       "id": "2",
       "name": "Anastacia",
       "phone": "2136663236",
       "email": "anstacia@bol.com.br"
-    },
-    {
-      "id": "3",
-      "name": "Tavares",
-      "phone": "21988669999",
-      "email": "xanddybr@gmail.com"
-    },
-    {
-      "id": "4",
-      "name": "Rafael",
-      "phone": "21986662356",
-      "email": "xanddybr@gmail.com"
     }
   ]
 }

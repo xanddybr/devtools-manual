@@ -1,1 +1,43 @@
-<p>lesson31 works!</p>
+<h3>For to working with modal, do you need install Jquery libary in your project</h3>
+
+<textarea style="width: 700px; height: 350px;" disabled>
+
+  in file .html type the code bellow
+
+  <dialog> 
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Title Modal</h5>     
+    </div>
+    <div class="modal-body">
+      Content modal
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="closeDialog()">Close</button>
+    </div>
+</dialog>
+
+
+// open modal dialog
+  openDialog() {
+    const dg = document.querySelector('dialog')
+    document.body.style.overflow = 'hidden';
+    dg.showModal()
+  }
+
+// close modal dialog
+  closeDialog(){
+    const dg = document.querySelector('dialog')
+    document.body.style.overflow = '';
+    dg.close()
+  }
+
+// restore scrolling when modal dialog closed for ESC
+  ngOnInit():void {
+
+    $('body').keyup(function(event) {
+      if (event.keyCode == 27) {
+        document.body.style.overflow = ''}
+    })
+  }
+
+</textarea>

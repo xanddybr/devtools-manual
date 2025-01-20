@@ -1,5 +1,5 @@
 import { ServiceLinksService } from './../services/service-links.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Contact } from '../models/Contact';
@@ -14,7 +14,7 @@ import { ModalServiceService } from '../services/modal-service.service';
   styleUrl: './lesson24.component.scss'
 })
 
-export class Lesson24Component implements OnInit {
+export class Lesson24Component implements OnInit, OnChanges {
 
   constructor(private service:ServiceLinksService, private mdService:ModalServiceService){}
 
@@ -40,9 +40,33 @@ export class Lesson24Component implements OnInit {
   arrayCount:number
   idxMain:number 
   dialogModal:boolean = false
+  msgParent:string
 
 
+  ngOnInit():void {
+
+    $('body').keyup(function(event) {
+      if (event.keyCode == 27) {
+        document.body.style.overflow = ''}
+    })
+
+    
+    this.loadContacts()
+    this.labelBtnUpdate = 'Update'
+    this.labelBtnRegister = 'New'
+    this.labelBtnDelete  = "Delete"
+    this.inputRdln = "readonly"
+    this.classTextBox = "form-control inputReadOnly"
+    this.btnUpdate = true
+    this.btnDelete = true
+    this.btnCancel = true
+    this.mdService.setMsg('This fiel dont stay empty in 2025!')
+    
+  }
   
+  ngOnChanges(): void {
+    
+  }
   
   registerContact ():void {
 
@@ -64,7 +88,6 @@ export class Lesson24Component implements OnInit {
 
      case "Save":
       if(this.form01.get('name').invalid){
-        this.mdService.setMsg("This fiel don't stay empty!")
         this.openDialog()
         return
       }
@@ -154,25 +177,7 @@ export class Lesson24Component implements OnInit {
   }
   
 
-  ngOnInit():void {
-
-    $('body').keyup(function(event) {
-      if (event.keyCode == 27) {
-        document.body.style.overflow = ''}
-    })
-
-    this.loadContacts()
-    this.labelBtnUpdate = 'Update'
-    this.labelBtnRegister = 'New'
-    this.labelBtnDelete  = "Delete"
-    this.inputRdln = "readonly"
-    this.classTextBox = "form-control inputReadOnly"
-    this.btnUpdate = true
-    this.btnDelete = true
-    this.btnCancel = true
-    
   
-  }
 
 validateForm(): boolean { 
 
