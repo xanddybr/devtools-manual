@@ -1,13 +1,14 @@
 dialog {
-    border: none;
+    border-style: none;
     border-radius: 1ch;
     width: 50ch;
-}   
+ }   
 
 dialog::backdrop{
     background:black;
-    opacity: .5 ;
-    overflow-y: hidden;       
+    opacity: .6 ;
+    overflow-y: hidden;    
+       
 }
 
 form{

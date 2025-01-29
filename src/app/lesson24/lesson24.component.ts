@@ -45,7 +45,6 @@ export class Lesson24Component implements OnInit {
 
 
   ngOnInit():void { 
-    
     this.loadContacts()
     this.labelBtnUpdate = 'Update'
     this.labelBtnRegister = 'New'
@@ -66,7 +65,6 @@ export class Lesson24Component implements OnInit {
    }
   
   registerContact ():void {
-
     switch (this.labelBtnRegister) {
       case "New":
         let c = this.contact.length + 1
@@ -220,7 +218,7 @@ validateForm(): boolean {
       return this.txtContent
     }
 
-    }
+}
 
     
 
