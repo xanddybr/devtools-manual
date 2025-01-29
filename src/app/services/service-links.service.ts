@@ -37,7 +37,7 @@ export class ServiceLinksService {
       {title:"Lesson 23",subtitle:"StrictNullChecks",link:"/lesson23"},
       {title:"Lesson 24",subtitle:"CRUD Project with Json-server",link:"/lesson24"},
       {title:"Lesson 25",subtitle:"Validation of Router ",link: "/lesson25"},
-      {title:"Lesson 26",subtitle:"Pipes",link:"/lesson26"},
+      {title:"Lesson 26",subtitle:"Firebase",link:"/lesson26"},
       {title:"Lesson 27",subtitle:"Validators",link:"/lesson27"},
       {title:"Lesson 28",subtitle:"Create Model Contact",link:"/lesson28"},
       {title:"Lesson 29",subtitle:"Messages of validation",link:"/lesson29"},
