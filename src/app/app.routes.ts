@@ -77,7 +77,8 @@ export const routes: Routes = [
     {path:'lesson35', component:Lesson35Component},
     {path:'lesson36', component:Lesson36Component},
     {path:'lesson37', component:Lesson37Component},
-    {path:'', redirectTo:'',pathMatch:'full'}
+    {path:'', component:Lesson01Component},
+    {path:'**', component:Lesson01Component}
 
 ];
 

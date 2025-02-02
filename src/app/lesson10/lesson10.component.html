@@ -17,7 +17,7 @@
 
 <textarea style="width: 800px; height: 420px;" disabled>
 
-    Need import FormsModule for can use ngModel and store the value bring of element select
+    import FormsModule for can use ngModel and store the value bring of element select
     
 Exemple:
 
@@ -33,5 +33,8 @@ Exemple:
         <p *ngSwitchDefault>no value selected</p>
     </div>
 
+    selectOption(){
+        this.course = this.selectedValue
+      }
     
 </textarea>

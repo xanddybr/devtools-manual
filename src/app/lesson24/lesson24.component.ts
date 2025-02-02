@@ -3,7 +3,6 @@ import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Contact } from '../models/Contact';
-import { ModalServiceService } from '../services/modal-service.service';
 
 @Component({
   selector: 'app-lesson24',
@@ -15,7 +14,7 @@ import { ModalServiceService } from '../services/modal-service.service';
 
 export class Lesson24Component implements OnInit {
 
-  constructor(private service:ServiceLinksService, private mdService:ModalServiceService){}
+  constructor(private service:ServiceLinksService){}
 
   form01 = new FormGroup ({
     id:    new FormControl(''),
