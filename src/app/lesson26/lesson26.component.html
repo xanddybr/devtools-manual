@@ -1,1 +1,17 @@
-<p>Teste connection firebases</p>
+<p>Simple load Fetch data</p>
+<textarea textarea style="width: 700px; height: 400px;" disabled>
+
+    loadData(){
+        const url = "https://viacep.com.br/ws/RS/Porto%20Alegre/Domingos/json/"
+        fetch(url)
+        .then(response => {
+          if(!response.ok) {
+            alert('erro ao carregar a lista de ceps')
+          }
+          response.json()
+          .then(data => { if(this.dataCep.length == 0 ){
+            this.dataCep = data as Cep[]
+          } })
+          .finally(()=>{console.log('Data loading was successful')})
+        })  
+</textarea>

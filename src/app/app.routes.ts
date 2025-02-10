@@ -1,3 +1,4 @@
+import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 
 import { Lesson01Component } from './lesson01/lesson01.component';
@@ -37,48 +38,51 @@ import { Lesson34Component } from './lesson34/lesson34.component';
 import { Lesson35Component } from './lesson35/lesson35.component';
 import { Lesson36Component } from './lesson36/lesson36.component';
 import { Lesson37Component } from './lesson37/lesson37.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
 
 
-export const routes: Routes = [ 
-    {path:'lesson01', component:Lesson01Component},
-    {path:'lesson02', component:Lesson02Component},
-    {path:'lesson03', component:Lesson03Component},
-    {path:'lesson04', component:Lesson04Component},
-    {path:'lesson05', component:Lesson05Component},
-    {path:'lesson06', component:Lesson06Component},
-    {path:'lesson07', component:Lesson07Component},
-    {path:'lesson08', component:Lesson08Component},
-    {path:'lesson09', component:Lesson09Component},
-    {path:'lesson10', component:Lesson10Component},
-    {path:'lesson11', component:Lesson11Component},
-    {path:'lesson12', component:Lesson12Component},
-    {path:'lesson13', component:Lesson13Component},
-    {path:'lesson14', component:Lesson14Component},
-    {path:'lesson15', component:Lesson15Component},
-    {path:'lesson16', component:Lesson16Component},
-    {path:'lesson17', component:Lesson17Component},
-    {path:'lesson18', component:Lesson18Component},
-    {path:'lesson19', component:Lesson19Component},
-    {path:'lesson20', component:Lesson20Component},
-    {path:'lesson21', component:Lesson21Component},
-    {path:'lesson22', component:Lesson22Component},
-    {path:'lesson23', component:Lesson23Component},
-    {path:'lesson24', component:Lesson24Component},
-    {path:'lesson25', component:Lesson25Component},
-    {path:'lesson26', component:Lesson26Component},
-    {path:'lesson27', component:Lesson27Component},
-    {path:'lesson28', component:Lesson28Component},
-    {path:'lesson29', component:Lesson29Component},
-    {path:'lesson30', component:Lesson30Component},
-    {path:'lesson31', component:Lesson31Component},
-    {path:'lesson32', component:Lesson32Component},
-    {path:'lesson33', component:Lesson33Component},
-    {path:'lesson34', component:Lesson34Component},
-    {path:'lesson35', component:Lesson35Component},
-    {path:'lesson36', component:Lesson36Component},
-    {path:'lesson37', component:Lesson37Component},
-    {path:'', component:Lesson01Component},
-    {path:'**', component:Lesson01Component}
-
+export const routes: Routes = [
+    {path:'', component:LoginComponent},
+    {path:'dashboard', component:DashboardComponent, children: [
+        {path:'lesson01', component:Lesson01Component},
+        {path:'lesson02', component:Lesson02Component},
+        {path:'lesson03', component:Lesson03Component},
+        {path:'lesson04', component:Lesson04Component},
+        {path:'lesson05', component:Lesson05Component},
+        {path:'lesson06', component:Lesson06Component},
+        {path:'lesson07', component:Lesson07Component},
+        {path:'lesson08', component:Lesson08Component},
+        {path:'lesson09', component:Lesson09Component},
+        {path:'lesson10', component:Lesson10Component},
+        {path:'lesson11', component:Lesson11Component},
+        {path:'lesson12', component:Lesson12Component},
+        {path:'lesson13', component:Lesson13Component},
+        {path:'lesson14', component:Lesson14Component},
+        {path:'lesson15', component:Lesson15Component},
+        {path:'lesson16', component:Lesson16Component},
+        {path:'lesson17', component:Lesson17Component},
+        {path:'lesson18', component:Lesson18Component},
+        {path:'lesson19', component:Lesson19Component},
+        {path:'lesson20', component:Lesson20Component},
+        {path:'lesson21', component:Lesson21Component},
+        {path:'lesson22', component:Lesson22Component},
+        {path:'lesson23', component:Lesson23Component},
+        {path:'lesson24', component:Lesson24Component},
+        {path:'lesson25', component:Lesson25Component},
+        {path:'lesson26', component:Lesson26Component},
+        {path:'lesson27', component:Lesson27Component},
+        {path:'lesson28', component:Lesson28Component},
+        {path:'lesson29', component:Lesson29Component},
+        {path:'lesson30', component:Lesson30Component},
+        {path:'lesson31', component:Lesson31Component},
+        {path:'lesson32', component:Lesson32Component},
+        {path:'lesson33', component:Lesson33Component},
+        {path:'lesson34', component:Lesson34Component},
+        {path:'lesson35', component:Lesson35Component},
+        {path:'lesson36', component:Lesson36Component},
+        {path:'lesson37', component:Lesson37Component},
+    
+    ]},
 ];
 

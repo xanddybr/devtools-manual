@@ -1,0 +1,49 @@
+<p>dashboard works!</p>
+
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="d-flex">
+      <a class="navbar-brand mx-2" href="#"> Devtools - manual</a>
+  
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Content express</a>
+      </li>
+    </ul>
+    </div>
+  
+    <form class="form-inline d-flex mx-2">
+  
+   <button class="navbar-toggler" type="button" (click)="loadLinkRoute()">Search</button>
+      <input id="txt" class="form-control mx-1" placeholder="Search" style="width: 300px;" value="" type="text">
+         <datalist id="links">
+          <option *ngFor="let item of myitem" >{{ item.subtitle }}</option>
+      </datalist>
+    </form>
+  
+   
+  </nav>
+  
+  <div class="container">
+      <div class="row align-items-start">
+        <div class="sidenav col mt-2" style="background-color: #ffffff;">
+          <div *ngFor="let item of myitem" class="mb-2">
+            <a class="pill d-flex justify-content-center" target="_self" routerLink="{{item.link}}" routerLinkActive="active">{{ item.subtitle }} - {{ item.title }}</a>
+          </div>
+          <br><br><br>
+        </div>
+        <div class="main col">
+          <router-outlet></router-outlet>
+        </div>
+        
+      </div>
+     
+      
+  </div>
+  
+  
+  
+  
+   
+  
+   
+  

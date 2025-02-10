@@ -34,7 +34,7 @@ export class Lesson01Component implements OnInit {
       .then(data => { if(this.dataCep.length == 0 ){
         this.dataCep = data as Cep[]
       } })
-      .finally(()=>{console.log('Concluido com sucesso!')})
+      .finally(()=>{console.log('Data loading was successful')})
     })
     
   }
